@@ -1,0 +1,24 @@
+replicaCount: 1
+image:
+  repository: supershal/helm-demo
+  tag: latest
+  pullPolicy: Always
+env:
+  DEMO_ENV: dev-default
+  JENKINS_BUILD_ID: nil
+service:
+  name: http
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 9090
+resources:
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+ingress:
+  host: dev.helm.demo.com
+  # Enable automatic TLS with Let's Encrypt
+  tls: false
